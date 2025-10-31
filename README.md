@@ -1,6 +1,6 @@
 # Invoice Approval System
 
-An intelligent invoice approval system powered by LLM that automatically extracts invoice data from PDFs, analyzes invoices against company policies, and routes them for human approval when needed. The system uses AI to detect disallowed items, check compliance, and learn from prior approval decisions.
+An intelligent expense approval system powered by LLM that automatically extracts invoice data from PDFs, analyzes expense bills against company policies, and routes them for human approval when needed. The system uses AI to detect disallowed items, check compliance, and learn from prior approval decisions.
 
 ## 🎯 Features
 
