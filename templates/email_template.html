@@ -1,0 +1,153 @@
+<!-- 
+Kaladeofin Technologies — SendGrid Dynamic Template (HTML)
+
+Purpose: Invoice approval email with personalization, branded logo, dynamic invoice details, and optional LLM analysis.
+Standard: Accessible, responsive, inline-styled, bulletproof buttons for CTAs.
+-->
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{brand.name}} • Invoice Approval</title>
+  <style>
+    html,body { margin:0 !important; padding:0 !important; height:100% !important; width:100% !important; }
+    * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; }
+    table, td { mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; }
+    img { -ms-interpolation-mode:bicubic; }
+    a { text-decoration:none; }
+    @media only screen and (max-width:600px){
+      .container { width:100% !important; }
+      .px { padding-left:16px !important; padding-right:16px !important; }
+      .stack { display:block !important; width:100% !important; }
+      .btn { display:block !important; width:100% !important; }
+      .center { text-align:center !important; }
+      .hide-sm { display:none !important; }
+    }
+  </style>
+  <!--[if mso]>
+    <style type="text/css">
+      body, table, td { font-family: Arial, sans-serif !important; }
+    </style>
+  <![endif]-->
+</head>
+<body style="background:#f6f9fc; margin:0; padding:0;">
+  <!-- Preheader -->
+  <div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all;">
+    {{preheader}}
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f6f9fc;">
+    <tr>
+      <td align="center" style="padding:24px 16px;">
+        <table role="presentation" width="640" cellpadding="0" cellspacing="0" class="container" style="width:640px; max-width:100%; background:#ffffff; border:1px solid #e5e7eb; border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(2,8,20,0.06);">
+
+          <!-- Header -->
+          <tr>
+            <td class="px" style="background:#0b6fa4; color:#ffffff; padding:20px 24px;">
+              <table role="presentation" width="100%">
+                <tr>
+                  <td align="left" style="vertical-align:middle;">
+                    <div style="font:600 14px/1.4 Arial, Helvetica, sans-serif;">Kaladeofin Technologies</div>
+                    <div style="padding-top:6px; font:600 18px/1.3 Arial, Helvetica, sans-serif;">Expense Approval Required</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Personalized Greeting & Intro -->
+          <tr>
+            <td class="px" style="padding:18px 24px; font:400 15px/1.6 Arial, Helvetica, sans-serif; color:#334155;">
+              <p style="margin:0 0 12px 0;">Hi <strong>{{approver_name}}</strong>,</p>
+              <p style="margin:0 0 12px 0;">
+                You have received an approval request for the bill submitted <strong>#{{invoice.number}}</strong> for <strong>{{invoice.currency}} {{invoice.amount}}</strong>.
+              </p>
+              <p style="margin:0 0 12px 0;">Please find the details below and act on this approval.</p>
+            </td>
+          </tr>
+          
+          <!-- Invoice Summary -->
+          <tr>
+            <td class="px" style="padding:8px 24px 16px 24px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff; border:1px solid #eef2f7; border-radius:10px;">
+                <tr>
+                  <td style="padding:14px 16px;">
+                    <table role="presentation" width="100%">
+                      <tr>
+                        <td style="font:600 14px Arial, Helvetica, sans-serif; color:#111827; padding:6px 0;">Bill Number</td>
+                        <td align="right" style="font:500 14px Arial, Helvetica, sans-serif; color:#374151; padding:6px 0;">#{{invoice.number}}</td>
+                      </tr>
+                      <tr>
+                        <td style="font:600 14px Arial, Helvetica, sans-serif; color:#111827; padding:6px 0;">Amount</td>
+                        <td align="right" style="font:700 16px Arial, Helvetica, sans-serif; color:#0b3d1a; padding:6px 0;">{{invoice.currency}} {{invoice.amount}}</td>
+                      </tr>
+                      <tr>
+                        <td style="font:600 14px Arial, Helvetica, sans-serif; color:#111827; padding:6px 0;">Vendor</td>
+                        <td align="right" style="font:500 14px Arial, Helvetica, sans-serif; color:#374151; padding:6px 0;">{{invoice.vendor}}</td>
+                      </tr>
+                      <tr>
+                        <td style="font:600 14px Arial, Helvetica, sans-serif; color:#111827; padding:6px 0;">Expense Reason</td>
+                        <td align="right" style="font:500 14px Arial, Helvetica, sans-serif; color:#374151; padding:6px 0;">{{invoice.business_reason}}</td>
+                      </tr>
+                      <tr>
+                        <td style="font:600 14px Arial, Helvetica, sans-serif; color:#111827; padding:6px 0;">Raised by</td>
+                        <td align="right" style="font:500 14px Arial, Helvetica, sans-serif; color:#374151; padding:6px 0;">{{requestor.name}} ({{requestor.email}})</td>
+                      </tr>
+                      <tr>
+                        <td style="font:600 14px Arial, Helvetica, sans-serif; color:#111827; padding:6px 0;">Team</td>
+                        <td align="right" style="font:500 14px Arial, Helvetica, sans-serif; color:#374151; padding:6px 0;">{{requestor.team}}</td>
+                      </tr>
+                      <tr>
+                        <td style="font:600 14px Arial, Helvetica, sans-serif; color:#111827; padding:6px 0;">Invoice date</td>
+                        <td align="right" style="font:500 14px Arial, Helvetica, sans-serif; color:#374151; padding:6px 0;">{{invoice.date}}</td>
+                      </tr>
+                      <tr>
+                        <td style="font:600 14px Arial, Helvetica, sans-serif; color:#111827; padding:6px 0;">AI Assistant Suggestion</td>
+                        <td align="right" style="font:500 14px Arial, Helvetica, sans-serif; color:#374151; padding:6px 0;">{{model_reason}}</td>
+                      </tr>
+                      <tr>
+                        <td style="font:600 14px Arial, Helvetica, sans-serif; color:#111827; padding:6px 0;">Policy Citation</td>
+                        <td align="right" style="font:500 14px Arial, Helvetica, sans-serif; color:#374151; padding:6px 0;">{{model_citations}}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- CTA Buttons -->
+          <tr>
+            <td align="center" class="px" style="padding:0 24px 16px 24px;">
+              <table role="presentation" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding:6px 6px;">
+                    <div style="text-align: center; margin: 18px 0;">
+                      <a href="{{approval_url}}" style="background:#0ea5e9;color:#ffffff;padding:10px 14px;border-radius:8px;text-decoration:none; font:700 14px/1 Arial, Helvetica, sans-serif; display: inline-block;">
+                        Act on the Approval
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td class="px" style="background:#fafafa; padding:14px 24px; text-align:center; font:400 12px/1.6 Arial, Helvetica, sans-serif; color:#777777;">
+              You're receiving this because you're listed as an approver for Kaladeofin Technologies.<br />
+              <a href="{{footer.help_url}}" style="color:#0b6fa4;">Help</a> &nbsp;•&nbsp;
+              <a href="{{footer.preferences_url}}" style="color:#0b6fa4;">Unsubscribe</a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+

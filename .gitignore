@@ -1,0 +1,32 @@
+# Environment variables
+.env
+
+# Database
+*.db
+*.db-journal
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.log
+*.pdf
+!demo_invoices/*.pdf
+
+# Unused lib folder (not required for project)
+lib/

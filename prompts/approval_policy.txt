@@ -1,0 +1,125 @@
+Expense Policy (v2.0)
+
+## Purpose
+This policy ensures all expenses are necessary, reasonable, compliant with company standards, and properly documented. The system provides recommendations to human approvers; final decisions are made by authorized personnel.
+
+## Approval Thresholds (pre-tax amounts)
+
+### Automatic Approval
+- **Amount ≤ $250**: Automatically approved if:
+  - Business purpose is clear and documented
+  - Supplier is known and verified
+  - No disallowed items are present
+  - Invoice date is within the past 180 days
+  - All required documentation is present
+  - Food below $50 on days where cafeteria is not working. 
+
+### Manager Approval Required
+- **Amount $250.01 - $2,500**: Requires manager approval [For demo purpose trigger a mail the email listed in .env]
+- **Amount $2,500.01 - $10,000**: Requires finance manager approval [For demo purpose trigger a mail the email listed in .env]
+
+### Executive Approval Required
+- **Amount > $10,000**: Requires executive approval [For demo purpose trigger a mail the email listed in .env]
+
+### Human Review Required (Any Amount)
+- Ambiguous or unclear business purpose
+- Missing critical information (supplier details, invoice date, line items)
+- Unclear supplier legitimacy
+- Uncertainty about policy compliance
+- Any case where automatic decision cannot be confidently made
+
+## General Requirements
+
+### Required Information
+All invoices must include:
+- Supplier name and contact information
+- Invoice date (within past 180 days unless pre-approved)
+- Itemized line items with descriptions
+- Line item totals and grand total
+- Valid vendor ID or supplier verification
+
+### Business Purpose
+- All purchases must have a clear, documented business purpose
+- Personal expenses without business justification are not permitted
+
+### Duplicate Prevention
+- Duplicate payments are strictly forbidden
+- System checks invoice ID + supplier combination to prevent duplicates
+- If duplicate detected, invoice will be flagged for review
+
+## Disallowed Expenses (Immediate Rejection)
+
+The following items are **strictly prohibited** and will result in automatic rejection regardless of amount:
+
+### Prohibited Categories
+1. **Alcohol**: Any alcoholic beverages including:
+   - Beer, wine, spirits, liquor, champagne, whiskey, vodka, rum, gin, tequila, liqueur
+   - Brand names: Absolut, Smirnoff, Jack Daniel's, Budweiser, Heineken, Corona, Singha, etc.
+   - Any item containing alcohol-related terms
+
+2. **Weapons**: Firearms, knives, or any weapon-related items
+
+3. **Gambling**: Casino expenses, lottery tickets, gambling-related items
+
+4. **Illegal Items**: Any items prohibited by local, state, or federal law
+
+5. **Adult Content**: Adult entertainment or explicit materials
+
+6. **Personal Goods**: Items clearly for personal use without business justification
+
+**CRITICAL**: If ANY line item contains disallowed items, the invoice will be automatically declined regardless of amount, supplier, or any other factors.
+
+## Date & Documentation Requirements
+
+### Invoice Date
+- Must be within the past 180 days unless pre-approved
+- System will flag invoices older than 180 days for review
+
+### Supplier Verification
+- Must include supplier contact information or valid vendor ID
+- Unverified suppliers require additional documentation
+
+## Team-Specific Guidelines
+
+### Engineering Team
+- Cloud/runtime tools ≤ $500 can be auto-approved if business purpose is clear
+
+### Sales/Marketing Team
+- Swag/events ≤ $300 can be auto-approved
+- Above $300 requires manager approval
+
+## Prior Case References
+
+- System references prior human decisions for consistency
+- Similar cases may inform recommendations but do not override hard policy bans
+- Human approvers receive context from prior similar approvals when available
+
+## Decision Outcomes
+
+### Approved
+- Fully compliant with policy
+- Within auto-approval thresholds (≤ $250)
+- Clear business purpose
+- No disallowed items
+- All required documentation present
+
+### Requires Human Review (approval_inprogress)
+- Amount exceeds auto-approval threshold (> $250)
+- Requires manager, finance, or executive approval based on amount
+- Ambiguous or unclear information
+- Missing critical documentation
+- Uncertain business purpose or supplier legitimacy
+- Any case requiring human judgment
+
+**Note**: When routed for human review, the system provides recommendations and analysis, but the final decision is made by the authorized human approver.
+
+### Declined (Automatic Rejection)
+- Contains disallowed items (alcohol, weapons, gambling, etc.)
+- Missing critical required information that cannot be resolved
+- Clear violation of policy requirements
+
+---
+
+**Policy Version**: 2.0  
+**Last Updated**: 2025-01-27  
+**Contact**: Finance Team for questions or clarifications
