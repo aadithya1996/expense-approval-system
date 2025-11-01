@@ -30,3 +30,12 @@ env/
 
 # Unused lib folder (not required for project)
 lib/
+
+# Documentation files (not needed in repository)
+COMPARISON_GUIDE.md
+EMAIL_TO_JONATHAN.md
+GITHUB_SETUP.md
+LLAMAINDEX_EXPLAINED.md
+LLAMAINDEX_INTEGRATION.md
+LLAMAINDEX_PROMPTS_EXPLAINED.md
+test_llamaindex_extraction.py
