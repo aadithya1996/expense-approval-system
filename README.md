@@ -238,7 +238,7 @@ Approve or decline an invoice.
 
 When an invoice PDF is uploaded:
 
-1. **PDF Text Extraction**: Extracts text from PDF using `pypdf`
+1. **PDF Text Extraction**: Extracts text from PDF using `LlamaIndex` (better handling of complex layouts and tables)
 2. **Data Extraction**: LLM extracts structured data:
    - Invoice ID/Number
    - Supplier Name
@@ -465,4 +465,6 @@ Edit `prompts/approval_prompt.txt` to:
 - OpenAI for LLM capabilities
 - FastAPI for the web framework
 - SendGrid for email services
+- LlamaIndex for PDF extraction capabilities
+- [LlamaIndex Tutorial](https://www.youtube.com/watch?v=wqPNaNFdSws) - YouTube video reference
 

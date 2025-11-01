@@ -12,8 +12,8 @@ from fastapi.templating import Jinja2Templates
 from pydantic import create_model
 
 from openai import OpenAI as OpenAIClient
-from pypdf import PdfReader
 from dateutil.parser import parse as parse_date
+from pdf_extraction_llamaindex import extract_text_from_pdf_llamaindex
 
 # Import helpers and workflow
 from helper import (
@@ -50,14 +50,13 @@ init_db()
 
 
 def extract_text_from_pdf(temp_pdf_path: str) -> str:
-    """Extract text from PDF using pypdf."""
+    """Extract text from PDF using LlamaIndex."""
     try:
-        reader = PdfReader(temp_pdf_path)
-        pages = [p.extract_text() or "" for p in reader.pages]
-        text = "\n\n".join(pages).strip()
+        # Use LlamaIndex for better PDF extraction (handles complex layouts, tables)
+        text = extract_text_from_pdf_llamaindex(temp_pdf_path)
         return text
     except Exception as e:
-        print(f"Error extracting PDF text: {e}")
+        print(f"Error extracting PDF text with LlamaIndex: {e}")
         return ""
 
 
@@ -87,7 +86,7 @@ async def extract(
             tmp.write(body)
             temp_pdf_path = tmp.name
 
-        # read pdf text
+        # read pdf text using LlamaIndex (better for complex layouts and tables)
         full_text = extract_text_from_pdf(temp_pdf_path)
         if not full_text:
             raise HTTPException(status_code=400, detail="Could not extract text from PDF")
