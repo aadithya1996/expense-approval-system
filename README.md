@@ -1,6 +1,9 @@
-# Invoice Approval System
+# Expense Approval System
 
 An intelligent expense approval system powered by LLM that automatically extracts invoice data from PDFs, analyzes expense bills against company policies, and routes them for human approval when needed. The system uses AI to detect disallowed items, check compliance, and learn from prior approval decisions.
+
+- [Expense Approval System](https://www.youtube.com/watch?v=wqPNaNFdSws) - Demo Video
+
 
 ## 🎯 Features
 
@@ -466,5 +469,4 @@ Edit `prompts/approval_prompt.txt` to:
 - FastAPI for the web framework
 - SendGrid for email services
 - LlamaIndex for PDF extraction capabilities
-- [LlamaIndex Tutorial](https://www.youtube.com/watch?v=wqPNaNFdSws) - YouTube video reference
 
