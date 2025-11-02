@@ -1,4 +1,4 @@
-# Expense Approval System
+# Agentic Expense Approval System
 
 An intelligent expense approval system powered by LLM that automatically extracts invoice data from PDFs, analyzes expense bills against company policies, and routes them for human approval when needed. The system uses AI to detect disallowed items, check compliance, and learn from prior approval decisions.
 
