@@ -8,7 +8,7 @@ An intelligent expense approval system powered by LLM that automatically extract
 ## 🎯 Features
 
 - **PDF Invoice Extraction**: Automatically extracts invoice data (supplier, date, amount, line items) from PDF files using LLM
-- **Intelligent Alcohol Detection**: Uses LLM knowledge to identify alcohol-related items (brands, product types, supplier context)
+- **Intelligent Prohibited item Detection**: Uses LLM knowledge to identify Prohibited items from approval policy (brands, product types, supplier context)
 - **Policy-Based Analysis**: Analyzes invoices against company expense policies with inline policy citations
 - **Auto-Approval**: Automatically approves invoices below a certain threshold that meet policy requirements
 - **Approval Routing**: Routes invoices to appropriate approvers based on amount thresholds:
